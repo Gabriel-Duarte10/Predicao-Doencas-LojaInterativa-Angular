@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PredicaoComponent } from './predicao/predicao.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  {path: 'dashboard', component: PredicaoComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

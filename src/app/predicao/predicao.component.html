@@ -1,0 +1,148 @@
+  <div class="m-5">
+    <form [formGroup]="form" class="">
+
+      <div class="row mt-5">
+        <div class="col">
+          <ng-container formArrayName="cabecasArray">
+            <ng-container class="row" *ngFor="let form of form.get('cabecasArray')['controls']; let i = index">
+              <div class="form-inline col" [formGroup]="form">
+                <div class="input-group col-12">
+                  <select formControlName="id" class="form-control col-12" [compareWith]="compareFn">
+                    <option [value]="''" aria-checked="true" selected> Selecione a doença </option>
+                    <option *ngFor="let item of cabecas | listUnique:[form.get('id').value]:cabecasArraySelecionados:'id'" [value]="item.id">
+                      {{item.nome}}
+                    </option>
+                  </select>
+                  <button *ngIf="i > 0" class="input-group-append btn btnExcluir" (click)="deleteCabecasArray(i)">
+                    <i class="ta-times-circle" padding="10px">X</i>
+                  </button>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+          <div class="row d-flex">
+            <div class="col" style="text-align: end;">
+              <button class="link align-items-center justify-content-center" (click)="addCabecasArray()">
+                <i class="fs-16 mr-2"></i>
+                <span class="link fs-16" style="text-decoration: underline;">Adicionar doenças Cabeças</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <ng-container formArrayName="mentaisArray">
+            <ng-container class="row" *ngFor="let form of form.get('mentaisArray')['controls']; let i = index">
+              <div class="form-inline col" [formGroup]="form">
+                <div class="input-group col-12">
+                  <select formControlName="id" class="form-control col-12" [compareWith]="compareFn">
+                    <option [value]="''" aria-checked="true" selected> Selecione a doença </option>
+                    <option *ngFor="let item of mentais | listUnique:[form.get('id').value]:mentaisArraySelecionados:'id'" [value]="item.id">
+                      {{item.nome}}
+                    </option>
+                  </select>
+                  <button *ngIf="i > 0" class="input-group-append btn btnExcluir" (click)="deleteMentaisArray(i)">
+                    <i class="ta-times-circle" padding="10px">X</i>
+                  </button>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+          <div class="row d-flex">
+            <div class="col" style="text-align: end;">
+              <button class="link align-items-center justify-content-center" (click)="addMentaisArray()">
+                <i class="fs-16 mr-2"></i>
+                <span class="link fs-16" style="text-decoration: underline;">Adicionar doenças Mentais</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col">
+          <ng-container formArrayName="extremidadesArray">
+            <ng-container class="row" *ngFor="let form of form.get('extremidadesArray')['controls']; let i = index">
+              <div class="form-inline col" [formGroup]="form">
+                <div class="input-group col-12">
+                  <select formControlName="id" class="form-control col-12" [compareWith]="compareFn">
+                    <option [value]="''" aria-checked="true" selected> Selecione a doença </option>
+                    <option *ngFor="let item of extremidades | listUnique:[form.get('id').value]:extremidadesArraySelecionados:'id'" [value]="item.id">
+                      {{item.nome}}
+                    </option>
+                  </select>
+                  <button *ngIf="i > 0" class="input-group-append btn btnExcluir" (click)="deleteExtremidadesArray(i)">
+                    <i class="ta-times-circle" padding="10px">X</i>
+                  </button>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+          <div class="row d-flex">
+            <div class="col" style="text-align: end;">
+              <button class="link align-items-center justify-content-center" (click)="addExtremidadesArray()">
+                <i class="fs-16 mr-2"></i>
+                <span class="link fs-16" style="text-decoration: underline;">Adicionar doenças de Extremidades</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <ng-container formArrayName="corpoTodosArray">
+            <ng-container class="row" *ngFor="let form of form.get('corpoTodosArray')['controls']; let i = index">
+              <div class="form-inline col" [formGroup]="form">
+                <div class="input-group col-12">
+                  <select formControlName="id" class="form-control col-12" [compareWith]="compareFn">
+                    <option [value]="''" aria-checked="true" selected> Selecione a doença </option>
+                    <option *ngFor="let item of corpoTodos | listUnique:[form.get('id').value]:corpoTodosArraySelecionados:'id'" [value]="item.id">
+                      {{item.nome}}
+                    </option>
+                  </select>
+                  <button *ngIf="i > 0" class="input-group-append btn btnExcluir" (click)="deleteCorpoTodosArray(i)">
+                    <i class="ta-times-circle" padding="10px">X</i>
+                  </button>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+          <div class="row d-flex">
+            <div class="col" style="text-align: end;">
+              <button class="link align-items-center justify-content-center" (click)="addCorpoTodosArray()">
+                <i class="fs-16 mr-2"></i>
+                <span class="link fs-16" style="text-decoration: underline;">Adicionar doenças do CorpoTodo</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col">
+          <ng-container formArrayName="frontaisArray">
+            <ng-container class="row" *ngFor="let form of form.get('frontaisArray')['controls']; let i = index">
+              <div class="form-inline col" [formGroup]="form">
+                <div class="input-group col-12">
+                  <select formControlName="id" class="form-control col-12" [compareWith]="compareFn">
+                    <option [value]="''" aria-checked="true" selected> Selecione a doença </option>
+                    <option *ngFor="let item of frontais | listUnique:[form.get('id').value]:frontaisArraySelecionados:'id'" [value]="item.id">
+                      {{item.nome}}
+                    </option>
+                  </select>
+                  <button *ngIf="i > 0" class="input-group-append btn btnExcluir" (click)="deleteFrontaisArray(i)">
+                    <i class="ta-times-circle" padding="10px">X</i>
+                  </button>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+          <div class="row d-flex">
+            <div class="col" style="text-align: end;">
+              <button class="link align-items-center justify-content-center" (click)="addFrontaisArray()">
+                <i class="fs-16 mr-2"></i>
+                <span class="link fs-16" style="text-decoration: underline;">Adicionar doenças Frontais</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <button (click)="calcular()" class="w-100 mt-5">Calcular</button>
+  </div>
+
